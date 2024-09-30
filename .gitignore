@@ -129,5 +129,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# este es para ignorar el keyes.js
+# este es para ignorar el key.js
 keys.js
+
+# este es para ignorar el key.js
+keys.json
+
+#variables de entorno
+.env
