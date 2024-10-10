@@ -20,15 +20,25 @@ async function getJiraInfo() {
     const auth = Buffer.from(`${email}:${apiToken}`).toString('base64');
 
     try {
-        const response = await axios.get(`${jiraBaseUrl}/rest/api/3/project/search`, {
+        /**
+         * estos endpoints sí funcionan. Hasta ahora el más importante es el de issue,
+         * pues el que nos permite recuperar las tareas. Las tareas pueden crearse en Jira
+         * y se les puede asignar tiempo. Todas esas característica se pueden extraer. Falta
+         *  ver cómo reflejar esto en tempo
+         */
+        //const response = await axios.get(`${jiraBaseUrl}/rest/api/3/project/search`, {
+        //const response = await axios.get(`${jiraBaseUrl}/rest/api/3/workflow`, {
+        //const response = await axios.get(`${jiraBaseUrl}rest/api/3/task/10005`, {
+        //const response = await axios.get(`${jiraBaseUrl}/rest/api/3/search`, {
+        const response = await axios.get(`${jiraBaseUrl}/rest/api/3/issue/10004`, {
             headers: {
                 'Authorization': `Basic ${auth}`,
                 'Accept': 'application/json'
             }
         });
-        let arregloProyectos = response.data.values;
-        //console.log(arregloProyectos.length);
-        formateoProyecto(arregloProyectos);
+        let arregloProyectos = response.data;
+        console.log(arregloProyectos);
+        //formateoProyecto(arregloProyectos);
         //console.log('proyectos:', response.data.values);
 
     } catch (error) {

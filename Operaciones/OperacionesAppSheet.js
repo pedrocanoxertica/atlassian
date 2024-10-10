@@ -2,6 +2,10 @@ import * as AppSheet from '../AppSheet/AppSheetInterface.js';
 
 let instanciaAppsheet = AppSheet.connect(process.env.APP_ID,process.env.APPLICATION_ACCESS_KEY);
 
+/**
+ * esto tiene el objetivo de insertar la información extraída de Jira, pero no funciona porque
+ * lo empecé a hacer antes de descurbrir el asunto de los issues/tareas
+ */
 function insertarDatos(){
     console.log(instanciaAppsheet);
     const rows = [

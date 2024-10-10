@@ -1,5 +1,11 @@
 import {Proyecto} from '../Modelo/Proyecto.js';
 
+/**
+ * Este método sirve para dar el formato requerido por la API de AppSheet a los datos
+ * otorgados por la API de Jira
+ * @param {Object} arregloProyectos es el arreglo que se extrae de Jira
+ * @returns 
+ */
 export function formateoProyecto(arregloProyectos){
     
     let arregloProyectosSheets = [];
